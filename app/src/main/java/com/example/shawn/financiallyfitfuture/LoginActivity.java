@@ -3,6 +3,10 @@ package com.example.shawn.financiallyfitfuture;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.app.TabActivity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -86,7 +90,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                //attemptLogin();
+                Fragment newCase = new NewCase();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(0, newCase);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
