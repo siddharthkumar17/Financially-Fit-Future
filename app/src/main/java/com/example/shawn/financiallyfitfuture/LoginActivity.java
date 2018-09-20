@@ -91,11 +91,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void onClick(View view) {
                 //attemptLogin();
-                Fragment newCase = new NewCase();
+           /*     Fragment newCase = new NewCase();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(0, newCase);
                 transaction.addToBackStack(null);
-                transaction.commit();
+                transaction.commit();*/
+                Intent i =new Intent(getApplicationContext(), healthwealthactivity.class);
+                startActivity(i);
             }
         });
 
