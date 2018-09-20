@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class healthwealthactivity extends AppCompatActivity {
-
+    ArrayList<String> healthChallenges = new ArrayList<String>();
+    ArrayList<String> wealthChallenges = new ArrayList<String>();
     private TextView mTextMessage;
     private FloatingActionButton fab;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -31,13 +33,22 @@ public class healthwealthactivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_health:
-                    mTextMessage.setText("Health");
+                case R.id.navigation_health: {
+                    String s ="";
+                    for(String a: healthChallenges){
+                        s+=a+'\n';
+                    }
+                    mTextMessage.setText(s);
                     return true;
-                case R.id.navigation_wealth:
-                    mTextMessage.setText("Wealth");
+                }
+                case R.id.navigation_wealth: {
+                    String s ="";
+                    for(String a: wealthChallenges){
+                        s+=a+'\n';
+                    }
+                    mTextMessage.setText(s);;
                     return true;
-
+                }
             }
             return false;
         }
@@ -60,9 +71,33 @@ public class healthwealthactivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        JSONObject json = null;
+        try{
+            json = new JSONObject(LoadJSON(getApplicationContext()));
+            JSONArray challenges = json.getJSONArray("challenges");
+            for(int x=0; x<challenges.length();x++){
+                JSONObject obj = challenges.getJSONObject(x);
+                if(obj.getString("type").equals("Health")){
+                    healthChallenges.add(obj.toString(3));
+                }
+                else if(obj.getString("type").equals("Wealth")){
+                    wealthChallenges.add(obj.toString(3));
+                }
 
+            }
+        }
+        catch(JSONException e){
+            e.printStackTrace();
+
+        }
        // mTextMessage.setText(LoadJSON(getApplicationContext()));
-        JSONObject master = parseJSON(LoadJSON(getApplicationContext()));
+
+        displayH(getApplicationContext());
+
+
+    }
+
+    public void displayH(Context context){
 
 
 
@@ -90,19 +125,5 @@ public class healthwealthactivity extends AppCompatActivity {
         return json;
     }
 
-    public JSONObject parseJSON(String s){
-        JSONObject json = null;
-        try{
-            json = new JSONObject(s);
-        }
-        catch(JSONException e){
-            e.printStackTrace();
-            return null;
-        }
-
-
-
-        return json;
-    }
 
 }
