@@ -25,7 +25,21 @@
         </activity>
         <activity
             android:name=".healthwealthactivity"
-            android:label="@string/title_activity_healthwealthactivity"></activity>
+            android:label="@string/title_activity_healthwealthactivity" />
+        <activity
+            android:name=".FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:parentActivityName=".healthwealthactivity"
+            android:theme="@style/FullscreenTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shawn.financiallyfitfuture.healthwealthactivity" />
+        </activity>
+        <activity android:name=".aractivity" />
+        <activity android:name=".AR_Activity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            ></activity>
     </application>
 
 </manifest>
