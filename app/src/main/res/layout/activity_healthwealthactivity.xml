@@ -29,7 +29,10 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="16dp" />
+
+        android:layout_marginBottom="75dp"
+        android:layout_marginRight="16dp"/>
+
     </RelativeLayout>
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
