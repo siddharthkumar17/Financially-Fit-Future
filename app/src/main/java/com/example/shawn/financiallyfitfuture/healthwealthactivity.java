@@ -49,6 +49,10 @@ public class healthwealthactivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        String s = 
+
+
     }
 
 }
