@@ -108,8 +108,10 @@ public class healthwealthactivity extends AppCompatActivity {
         hadapter = new ChallengeAdapter(this, healthChallenges.toArray(new JSONObject[healthChallenges.size()]));
         wadapter = new ChallengeAdapter(this, wealthChallenges.toArray(new JSONObject[wealthChallenges.size()]));
         radapter = new ChallengeAdapter(this, rewardChallenges.toArray(new JSONObject[rewardChallenges.size()]));
-
-        displayH();
+        if(getIntent().getIntExtra("REWARD",0)==1)
+            navigation.setSelectedItemId(R.id.navigation_rewards);
+        else
+            displayH();
 
 
 
