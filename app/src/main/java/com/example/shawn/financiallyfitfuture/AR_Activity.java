@@ -1,12 +1,16 @@
 package com.example.shawn.financiallyfitfuture;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.HitTestResult;
 import com.google.ar.sceneform.Node;
+import com.google.ar.sceneform.math.Quaternion;
 import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.*;
 import com.google.ar.sceneform.ux.*;
@@ -58,6 +62,14 @@ public class AR_Activity extends AppCompatActivity {
                     //set the note position in relation to its parent node.
                     // In this case, along the y axis of the Post-It note
                     noteText.setWorldPosition(new Vector3(0.5f, -0.05f, 0f));
+                    noteText.setOnTapListener(new Node.OnTapListener() {
+                        @Override
+                        public void onTap(HitTestResult hitTestResult, MotionEvent motionEvent) {
+                            Intent i = new Intent(getApplicationContext(), healthwealthactivity.class);
+                            i.putExtra("REWARD",1);
+                            startActivity(i);
+                        }
+                    });
                     // noteText.setWorldRotation();
                 });
     }
@@ -67,7 +79,7 @@ public class AR_Activity extends AppCompatActivity {
            // while(true) {
                 Random random = new Random();
                 try {
-                    Thread.sleep(random.nextInt(5000) + 10000);
+                    Thread.sleep(random.nextInt(5000) + 5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     return null;

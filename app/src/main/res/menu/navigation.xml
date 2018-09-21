@@ -10,7 +10,10 @@
         android:id="@+id/navigation_wealth"
         android:icon="@drawable/baseline_monetization_on_black_48dp"
         android:title="Wealth" />
-
+    <item
+        android:id="@+id/navigation_rewards"
+        android:icon="@drawable/wavedollarhdpi"
+        android:title="Rewards" />
 
 
 </menu>

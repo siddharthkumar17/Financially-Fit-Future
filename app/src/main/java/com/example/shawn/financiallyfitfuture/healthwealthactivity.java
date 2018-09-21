@@ -28,10 +28,12 @@ import java.io.InputStream;
 public class healthwealthactivity extends AppCompatActivity {
     ArrayList<JSONObject> healthChallenges = new ArrayList<JSONObject>();
     ArrayList<JSONObject> wealthChallenges = new ArrayList<JSONObject>();
+    ArrayList<JSONObject> rewardChallenges = new ArrayList<JSONObject>();
     private TextView mTextMessage;
     private ListView list;
     ChallengeAdapter hadapter;
     ChallengeAdapter wadapter;
+    ChallengeAdapter radapter;
     private FloatingActionButton fab;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,6 +50,11 @@ public class healthwealthactivity extends AppCompatActivity {
                 case R.id.navigation_wealth: {
 
                     displayW();
+
+                    return true;
+                }
+                case R.id.navigation_rewards:{
+                    displayR();
 
                     return true;
                 }
@@ -85,6 +92,9 @@ public class healthwealthactivity extends AppCompatActivity {
                 else if(obj.getString("type").equals("Wealth")){
                     wealthChallenges.add(obj);
                 }
+                else if(obj.getString("type").equals("Reward")){
+                    rewardChallenges.add(obj);
+                }
 
             }
         }
@@ -97,7 +107,12 @@ public class healthwealthactivity extends AppCompatActivity {
         //list.setAdapter(new ArrayAdapter<>());
         hadapter = new ChallengeAdapter(this, healthChallenges.toArray(new JSONObject[healthChallenges.size()]));
         wadapter = new ChallengeAdapter(this, wealthChallenges.toArray(new JSONObject[wealthChallenges.size()]));
+        radapter = new ChallengeAdapter(this, rewardChallenges.toArray(new JSONObject[rewardChallenges.size()]));
+
         displayH();
+
+
+
 
 
     }
@@ -109,7 +124,13 @@ public class healthwealthactivity extends AppCompatActivity {
     }
     public void displayW(){
         list.setAdapter(wadapter);
-        hadapter.notifyDataSetChanged();
+        wadapter.notifyDataSetChanged();
+
+
+    }
+    public void displayR(){
+        list.setAdapter(radapter);
+        radapter.notifyDataSetChanged();
 
 
     }

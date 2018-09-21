@@ -50,14 +50,20 @@
       "date": "09/27/2018"
     },
     {
-      "name": "Reward Structure",
-      "type": "Reward",
-      "description": [
-        "During the Challenge user will attempt to capture Transamerica icons or towers",
-        "If the user completes the challenge, a prize will be awarded.",
-        "Other random prizes, rewards and information can be randomly captured during the challenge.",
-        "These other prizes and rewards will consist of: Discounts for health or wealth related products, Advertisements for health or wealth related products including Transamerica products and Helpful tips and information for healthy and wealthy living."
-      ]
+      "name": "Reward 1",
+      "type": "Reward"
+      ,"description": ["$10 Gift Card to Whole Foods"]
+    },
+    {
+      "name": "Reward 2",
+      "type": "Reward"
+    ,"description": ["First 2 Months free at Lifetime Fitness"]
+    },
+    {
+      "name": "Reward 3",
+      "type": "Reward"
+    ,"description": ["$15 Gift Card to Academy Sports and Outdoors"]
     }
+
   ]
 }
