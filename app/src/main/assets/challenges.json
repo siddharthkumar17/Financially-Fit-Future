@@ -1,20 +1,63 @@
-{"challenges": [{
-    "name":"Health Challenge", "type":"Health",
-    "description": ["Navigate to a local area trail Challenge will list approved walking trails in the area", "Walk 3.1 miles", "In 40 minutes", "Capture at least 5 Transamerica Towers to receive a bonus",
-"Feel free to challenge your family and friends"]
- }
- 
- ,
- {
-	"name" : "Wealth Challenge", "type": "Wealth",
-	"description" : ["Create your Grocery List", "Add items manually or add them using your phone’s camera","Collaborate with your household members with the Shared List feature.",
-	"Check items off of your grocery list while collecting them through the store manually or with your phone’s camera.", "Capture a total of 5 mystery icons to receive a bonus!", "Challenge your family and friends!"
-]}
- 
- ,
- {
-	"name" : "Reward Structure", "type": "Reward",
-	"description" : ["During the Challenge user will attempt to capture Transamerica icons or towers", "If the user completes the challenge, a prize will be awarded.",
-	"Other random prizes, rewards and information can be randomly captured during the challenge.", "These other prizes and rewards will consist of: Discounts for health or wealth related products, Advertisements for health or wealth related products including Transamerica products and Helpful tips and information for healthy and wealthy living."
-]}] }
-
+{
+  "challenges": [
+    {
+      "name": "Health Challenge",
+      "type": "Health",
+      "description": [
+        "Navigate to a local area trail Challenge will list approved walking trails in the area",
+        "Walk 3.1 miles",
+        "In 40 minutes",
+        "Capture at least 5 Transamerica Towers to receive a bonus",
+        "Feel free to challenge your family and friends"
+      ],
+      "date": "09/20/2018"
+    },
+    {
+      "name": "Health Challenge",
+      "type": "Health",
+      "description": [
+        "Jog around a local park",
+        "For 40 minutes",
+        "Capture at least 5 Transamerica Towers to receive a bonus",
+        "Feel free to challenge your family and friends"
+      ],
+      "date": "09/24/2018"
+    },
+    {
+      "name": "Wealth Challenge",
+      "type": "Wealth",
+      "description": [
+        "Create your Grocery List",
+        "Add items manually or add them using your phone’s camera",
+        "Collaborate with your household members with the Shared List feature.",
+        "Check items off of your grocery list while collecting them through the store manually or with your phone’s camera.",
+        "Capture a total of 5 mystery icons to receive a bonus!",
+        "Challenge your family and friends!"
+      ],
+      "date": "09/22/2018"
+    },
+    {
+      "name": "Wealth Challenge",
+      "type": "Wealth",
+      "description": [
+        "Create another Grocery List",
+        "Add items manually or add them using your phone’s camera",
+        "Collaborate with your household members with the Shared List feature.",
+        "Check items off of your grocery list while collecting them through the store manually or with your phone’s camera.",
+        "Capture a total of 5 mystery icons to receive a bonus!",
+        "Challenge your family and friends!"
+      ],
+      "date": "09/27/2018"
+    },
+    {
+      "name": "Reward Structure",
+      "type": "Reward",
+      "description": [
+        "During the Challenge user will attempt to capture Transamerica icons or towers",
+        "If the user completes the challenge, a prize will be awarded.",
+        "Other random prizes, rewards and information can be randomly captured during the challenge.",
+        "These other prizes and rewards will consist of: Discounts for health or wealth related products, Advertisements for health or wealth related products including Transamerica products and Helpful tips and information for healthy and wealthy living."
+      ]
+    }
+  ]
+}
