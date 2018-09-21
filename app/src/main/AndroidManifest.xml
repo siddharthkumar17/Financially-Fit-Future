@@ -37,9 +37,10 @@
                 android:value="com.example.shawn.financiallyfitfuture.healthwealthactivity" />
         </activity>
         <activity android:name=".aractivity" />
-        <activity android:name=".AR_Activity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            ></activity>
+        <activity
+            android:name=".AR_Activity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

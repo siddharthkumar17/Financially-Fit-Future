@@ -8,6 +8,7 @@ import android.app.FragmentTransaction;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -85,8 +87,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
         });
-
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.login_progress);
+        final Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +99,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 transaction.addToBackStack(null);
                 transaction.commit();*/
                 Intent i =new Intent(getApplicationContext(), healthwealthactivity.class);
+                mEmailSignInButton.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, 1000);
+
+
                 startActivity(i);
             }
         });

@@ -12,20 +12,26 @@ import java.util.*;
 import android.util.*;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 public class healthwealthactivity extends AppCompatActivity {
-    ArrayList<String> healthChallenges = new ArrayList<String>();
-    ArrayList<String> wealthChallenges = new ArrayList<String>();
+    ArrayList<JSONObject> healthChallenges = new ArrayList<JSONObject>();
+    ArrayList<JSONObject> wealthChallenges = new ArrayList<JSONObject>();
     private TextView mTextMessage;
+    private ListView list;
+    ChallengeAdapter hadapter;
+    ChallengeAdapter wadapter;
     private FloatingActionButton fab;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,19 +40,15 @@ public class healthwealthactivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_health: {
-                    String s ="";
-                    for(String a: healthChallenges){
-                        s+=a+'\n';
-                    }
-                    mTextMessage.setText(s);
+
+                   displayH();
+
                     return true;
                 }
                 case R.id.navigation_wealth: {
-                    String s ="";
-                    for(String a: wealthChallenges){
-                        s+=a+'\n';
-                    }
-                    mTextMessage.setText(s);;
+
+                    displayW();
+
                     return true;
                 }
             }
@@ -59,7 +61,7 @@ public class healthwealthactivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_healthwealthactivity);
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -78,10 +80,10 @@ public class healthwealthactivity extends AppCompatActivity {
             for(int x=0; x<challenges.length();x++){
                 JSONObject obj = challenges.getJSONObject(x);
                 if(obj.getString("type").equals("Health")){
-                    healthChallenges.add(obj.toString(3));
+                    healthChallenges.add(obj);
                 }
                 else if(obj.getString("type").equals("Wealth")){
-                    wealthChallenges.add(obj.toString(3));
+                    wealthChallenges.add(obj);
                 }
 
             }
@@ -91,14 +93,23 @@ public class healthwealthactivity extends AppCompatActivity {
 
         }
        // mTextMessage.setText(LoadJSON(getApplicationContext()));
-
-        displayH(getApplicationContext());
+        list = (ListView) findViewById(R.id.list);
+        //list.setAdapter(new ArrayAdapter<>());
+        hadapter = new ChallengeAdapter(this, healthChallenges.toArray(new JSONObject[healthChallenges.size()]));
+        wadapter = new ChallengeAdapter(this, wealthChallenges.toArray(new JSONObject[wealthChallenges.size()]));
+        displayH();
 
 
     }
 
-    public void displayH(Context context){
+    public void displayH(){
+        list.setAdapter(hadapter);
+        hadapter.notifyDataSetChanged();
 
+    }
+    public void displayW(){
+        list.setAdapter(wadapter);
+        hadapter.notifyDataSetChanged();
 
 
     }
