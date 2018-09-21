@@ -98,23 +98,25 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 transaction.replace(0, newCase);
                 transaction.addToBackStack(null);
                 transaction.commit();*/
-                Intent i =new Intent(getApplicationContext(), healthwealthactivity.class);
+                final Intent i =new Intent(getApplicationContext(), healthwealthactivity.class);
                 mEmailSignInButton.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
 
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                       // try {
+                     //       Thread.sleep(500);
+                            progressBar.setVisibility(View.GONE);
+                            mEmailSignInButton.setVisibility(View.VISIBLE);
+                            startActivity(i);
+                     //   } catch (InterruptedException e) {
+                   //         e.printStackTrace();
+                      //  }
                     }
                 }, 1000);
 
 
-                startActivity(i);
             }
         });
 
