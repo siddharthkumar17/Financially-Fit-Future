@@ -8,19 +8,15 @@ import com.google.ar.sceneform.rendering.*;
 import com.google.ar.sceneform.ux.*;
 
 public class AR_Activity extends AppCompatActivity {
-    private static final double MIN_OPENGL_VERSION = 3.0;
+   // private static final double MIN_OPENGL_VERSION = 3.0;
 
     private ArFragment arFragment;
-    private ModelRenderable andyRenderable;
+//    private ModelRenderable andyRenderable;
 
 
 
 
     @Override
-    @SuppressWarnings({"AndroidApiChecker", "FutureReturnValueIgnored"})
-    // CompletableFuture requires api level 24
-    // FutureReturnValueIgnored is not valid
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ar_);
